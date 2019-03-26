@@ -16,11 +16,7 @@
       <section v-else>
         <h3>All posts:</h3>
         
-        <div v-for="(postObj,i) in allPosts" :key="i">
-          <p>{{postObj.author}}</p>
-          <p>{{postObj.post}}</p>
-          <hr>
-        </div>
+        <post v-for="(postObj, i) in allPosts" :key="i" :postObj='postObj'/>
 
       </section>
       
@@ -28,6 +24,8 @@
 </template>
 
 <script>
+import Post from './components/Post'
+
 export default {
   name: 'app',
   data() {  //don't use arrow functions in vue, but you can use ES6 method syntax.
@@ -49,7 +47,8 @@ export default {
       this.post = '';
       this.toggle();
     }
-  }
+  },
+  components:{ Post: Post }
 }
 </script>
 
