@@ -15,6 +15,13 @@
       </section>
       <section v-else>
         <h3>All posts:</h3>
+        
+        <div v-for="(postObj,i) in allPosts" :key="i">
+          <p>{{postObj.author}}</p>
+          <p>{{postObj.post}}</p>
+          <hr>
+        </div>
+
       </section>
       
   </div>
@@ -39,7 +46,7 @@ export default {
       const newPost = {author: this.author, post: this.post};
       this.allPosts.push(newPost)
       this.author ='';
-      this.author = '';
+      this.post = '';
       this.toggle();
     }
   }
